@@ -1,0 +1,41 @@
+{
+  "name": "pratyush-ai",
+  "version": "1.0.0",
+  "description": "Pratyush AI - Personal AI Assistant",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "Pratyush Dahal",
+  "license": "ISC",
+  "build": {
+    "appId": "com.pratyush.ai",
+    "productName": "Pratyush AI",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "assets/icon.png"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "dependencies": {
+    "@google-cloud/speech": "^7.3.1",
+    "axios": "^1.16.1",
+    "form-data": "^4.0.5",
+    "groq-sdk": "^1.2.0",
+    "node-cron": "^4.2.1",
+    "node-microphone": "^0.2.0",
+    "node-notifier": "^10.0.1",
+    "node-record-lpcm16": "^1.0.1",
+    "nodemailer": "^8.0.7",
+    "openai": "^6.37.0",
+    "puppeteer": "^21.11.0"
+  },
+  "devDependencies": {
+    "electron": "^42.0.1",
+    "electron-builder": "^26.8.1"
+  }
+}

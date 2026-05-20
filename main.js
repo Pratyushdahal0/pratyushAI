@@ -17,16 +17,24 @@ function createWindow() {
 
   win.loadFile("index.html");
 
-  // Allow mic permission
   win.webContents.session.setPermissionRequestHandler((webContents, permission, callback) => {
-    const allowed = ["media", "microphone", "audioCapture"];
-    callback(allowed.includes(permission));
+    callback(true);
   });
 
-  win.webContents.session.setPermissionCheckHandler((webContents, permission) => {
-    const allowed = ["media", "microphone", "audioCapture"];
-    return allowed.includes(permission);
+  win.webContents.session.setPermissionCheckHandler(() => {
+    return true;
   });
+
+  win.webContents.on("crashed", () => { win.reload(); });
+  win.webContents.on("unresponsive", () => { win.reload(); });
 }
 
 app.whenReady().then(createWindow);
+
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
+});
+
+app.on("activate", () => {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});

@@ -1,32 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pratyush AI</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="app">
-      <div class="header">
-        <div class="avatar">🤖</div>
-        <div class="header-text">
+<head>
+  <meta charset="UTF-8">
+  <title>Pratyush AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+
+    <div class="header">
+      <div class="header-left">
+        <div class="avatar-wrap">
+          <div class="avatar">P</div>
+          <div class="online-dot"></div>
+        </div>
+        <div class="header-info">
           <h1>Pratyush AI</h1>
-          <p>Online</p>
+          <span class="status">
+            <i class="fa-solid fa-circle" style="font-size:7px;"></i>
+            Online · Always ready
+          </span>
         </div>
       </div>
+      <button class="clear-btn" onclick="clearChat()" title="Clear chat">
+        <i class="fa-regular fa-trash-can"></i>
+      </button>
+    </div>
 
-      <div id="chat-box">
-        <p class="bot-msg">Hey Pratyush! I'm online and ready. What's up?</p>
-      </div>
+    <div class="quick-actions">
+      <button class="qbtn" onclick="quickSend('what should I work on today?')">
+        <i class="fa-solid fa-crosshairs"></i>
+        <span>Focus</span>
+      </button>
+      <button class="qbtn" onclick="quickSend('play lo-fi music in youtube')">
+        <i class="fa-solid fa-music"></i>
+        <span>Music</span>
+      </button>
+      <button class="qbtn" onclick="quickSend('what is the weather in Kathmandu')">
+        <i class="fa-solid fa-cloud-sun"></i>
+        <span>Weather</span>
+      </button>
+      <button class="qbtn" onclick="quickSend('open vs code')">
+        <i class="fa-solid fa-code"></i>
+        <span>Code</span>
+      </button>
+    </div>
 
-      <div class="input-area">
-        <input id="user-input" placeholder="Ask me anything..." />
-        <button id="mic-btn">🎤</button>
-        <button id="send-btn">↑</button>
+    <div id="chat-box">
+      <div class="bot-row">
+        <div class="bot-av">P</div>
+        <p class="bot-msg">Hey Pratyush! What's up? Ready to get things done?</p>
       </div>
     </div>
 
-    <script src="renderer.js"></script>
-  </body>
+    <div class="input-area">
+      <button id="mic-btn" class="mic-btn" title="Voice input">
+        <i class="fa-solid fa-microphone"></i>
+      </button>
+      <input id="user-input" placeholder="Ask me anything..." />
+      <button id="send-btn" class="send-btn" title="Send">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </div>
+
+  </div>
+  <script src="renderer.js"></script>
+</body>
 </html>
